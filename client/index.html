@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Music Player</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- Scripts may be placed anywhere on a page. But FYI, they block rendering of elements
+     below them until after the scripts load-->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+
+    <script src="data/data.js"></script>
+
+    <script src="models/SongModel.js"></script>
+    <script src="collections/Songs.js"></script>
+    <script src="collections/SongQueue.js"></script>
+    <script src="models/AppModel.js"></script>
+
+    <script src="views/PlayerView.js"></script>
+    <script src="views/LibraryView.js"></script>
+    <script src="views/LibraryEntryView.js"></script>
+    <script src="views/AppView.js"></script>
+    <script src="views/SongQueueView.js"></script>
+    <script src="views/SongQueueEntryView.js"></script>
+
+    <div class="stage">
+    </div>
+
+    <div class="audio">
+    </div>
+
+    <script>
+      $(function(){
+        // set up model objects
+        var library = new Songs(songData); // loaded on line 10
+        var app = new AppModel({library: library});
+
+        // build a view for the top level of the whole app
+        var appView = new AppView({model: app});
+        window.$body = $('body');
+        // put the view onto the screen
+        $('.stage').append(appView.render());
+      });
+    </script>
+  </body>
+</html>

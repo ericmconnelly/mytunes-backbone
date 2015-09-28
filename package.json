@@ -1,0 +1,12 @@
+{
+  "name": "mytune-app",
+  "version": "1.0.1",
+  "description": "my first myTune app -  David & Eric",
+  "dependencies": {
+    "harp": "*"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}
